@@ -1,5 +1,6 @@
-import Link from "next/link";
 import { db } from "~/server/db";
+
+export const dynamic = "force-dynamic";
 
 const mockUrls = [
   "https://utfs.io/f/e77e70b3-fe6c-40f6-a36f-b21469a87e10-1d.webp",
@@ -7,6 +8,7 @@ const mockUrls = [
   "https://utfs.io/f/d40fb498-d2f2-48d1-b23b-28c9ac372c6d-1f.webp",
   "https://utfs.io/f/351ce533-9377-428a-9ad4-c1a7ba6d0c60-1g.webp",
 ]
+
 
 const mockImages = mockUrls.map((url, index)=>({
   id:index,
