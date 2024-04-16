@@ -8,7 +8,7 @@ const inter = Inter({
 });
 
 export const metadata = {
-  title: "gallery",
+  title: "Gallery",
   description: "gallery",
   icons: [{ rel: "icon", url: "/favicon.ico" }],
 };
