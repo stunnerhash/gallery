@@ -28,8 +28,8 @@ export default function RootLayout({
       <html lang="en">
         <body className={`font-sans ${inter.variable}`}>
           <TopNav />
-          {modal}
           {children}
+          {modal}
           <div id="modal-root" />
         </body>
       </html>
