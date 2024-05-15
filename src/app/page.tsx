@@ -12,13 +12,13 @@ async function Images() {
       {images.map((image) => (
         <div key={image.id} className="p-4">
           <Link href={`/img/${image.id}`}>
-            <Image
-              src={image.url}
-              style={{ objectFit: "cover" }}
-              width={192}
-              height={192}
-              alt={image.name}
-            />
+          <Image
+            src={image.url}
+            style={{ objectFit: "cover" }}
+            width={192}
+            height={192}
+	    alt={image.name}
+          />
           </Link>
           <div>{image.name}</div>
         </div>

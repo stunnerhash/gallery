@@ -2,10 +2,9 @@
 
 import { useRouter } from "next/navigation";
 import { useUploadThing } from "~/utils/uploadthing";
-// import { toast } from "sonner";
+import { toast } from "sonner";
 // import { usePostHog } from "posthog-js/react";
 
-// inferred input off useUploadThing
 type Input = Parameters<typeof useUploadThing>;
 
 const useUploadThingInputProps = (...args: Input) => {
@@ -16,9 +15,7 @@ const useUploadThingInputProps = (...args: Input) => {
 
     const selectedFiles = Array.from(e.target.files);
     const result = await $ut.startUpload(selectedFiles);
-
     console.log("uploaded files", result);
-    // TODO: persist result in state maybe?
   };
 
   return {
@@ -79,24 +76,24 @@ export function SimpleUploadButton() {
   const { inputProps } = useUploadThingInputProps("imageUploader", {
     onUploadBegin() {
       // posthog.capture("upload_begin");
-      // toast(
-      //   <div className="flex items-center gap-2 text-white">
-      //     <LoadingSpinnerSVG /> <span className="text-lg">Uploading...</span>
-      //   </div>,
-      //   {
-      //     duration: 100000,
-      //     id: "upload-begin",
-      //   },
-      // );
+      toast(
+        <div className="flex items-center gap-2 text-white">
+          <LoadingSpinnerSVG /> <span className="text-lg">Uploading...</span>
+        </div>,
+        {
+          duration: 100000,
+          id: "upload-begin",
+        },
+      );
     },
     onUploadError(error) {
       // posthog.capture("upload_error", { error });
-      // toast.dismiss("upload-begin");
-      // toast.error("Upload failed");
+      toast.dismiss("upload-begin");
+      toast.error("Upload failed");
     },
     onClientUploadComplete() {
-      // toast.dismiss("upload-begin");
-      // toast("Upload complete!");
+      toast.dismiss("upload-begin");
+      toast("Upload complete!");
 
       router.refresh();
     },
